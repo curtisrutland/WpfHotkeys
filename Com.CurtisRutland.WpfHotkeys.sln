@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.CurtisRutland.WpfHotkeys", "Com.CurtisRutland.WpfHotkeys\Com.CurtisRutland.WpfHotkeys.csproj", "{4F9B6DA3-261D-46CB-B677-9BEA7DF419A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.CurtisRutland.WpfHotkeys.Example", "Com.CurtisRutland.WpfHotkeys.Example\Com.CurtisRutland.WpfHotkeys.Example.csproj", "{7C6F6FA3-70E9-4097-8926-5356B40C9B53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{4F9B6DA3-261D-46CB-B677-9BEA7DF419A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F9B6DA3-261D-46CB-B677-9BEA7DF419A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F9B6DA3-261D-46CB-B677-9BEA7DF419A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6F6FA3-70E9-4097-8926-5356B40C9B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6F6FA3-70E9-4097-8926-5356B40C9B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6F6FA3-70E9-4097-8926-5356B40C9B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6F6FA3-70E9-4097-8926-5356B40C9B53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

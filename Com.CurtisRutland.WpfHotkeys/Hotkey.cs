@@ -20,7 +20,7 @@ namespace Com.CurtisRutland.WpfHotkeys
         }
 
         public Modifiers Modifier { get; private set; }
-        public int Key { get; set; }
+        public Keys Key { get; set; }
         public int Id { get; private set; }
 
         private readonly IntPtr _hWnd;
@@ -30,7 +30,7 @@ namespace Com.CurtisRutland.WpfHotkeys
         {
             if (window == null) throw new ArgumentException("You must provide a form or window to register the hotkey to.", "window");
             Modifier = modifier;
-            Key = (int)key;
+            Key = key;
             _hWnd = new WindowInteropHelper(window).Handle;
             Id = GetHashCode();
             HookWndProc(window);
@@ -47,14 +47,17 @@ namespace Com.CurtisRutland.WpfHotkeys
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             var info = HotkeyInfo.GetFromMessage(msg, lParam);
-            if (info != null) OnHotkeyPressed(info);
+            if (info != null)
+            {
+                if(info.Key == Key && info.Modifier == Modifier) OnHotkeyPressed(info);
+            }
             return IntPtr.Zero;
         }
 
         public void Register()
         {
             if (_registered) return;
-            if (!User32.RegisterHotKey(_hWnd, Id, (int)Modifier, Key))
+            if (!User32.RegisterHotKey(_hWnd, Id, (int)Modifier, (int)Key))
                 throw new HotkeyException("Hotkey failed to register.");
             _registered = true;
         }
@@ -72,7 +75,7 @@ namespace Com.CurtisRutland.WpfHotkeys
 
         public sealed override int GetHashCode()
         {
-            return (int)Modifier ^ Key ^ _hWnd.ToInt32();
+            return (int)Modifier ^ (int)Key ^ _hWnd.ToInt32();
         }
 
         public void Dispose()
